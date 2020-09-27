@@ -1,11 +1,11 @@
 $(document).ready(() => {
-  let name = [];
+  let amenities = [];
   $('.amenities INPUT').change(function () {
     if (this.checked) {
-      name.push($(this).attr('data-name'));
+      amenities.push($(this).attr('data-name'));
     } else {
-      name.pop($(this).attr('data-name'));
+      amenities.pop($(this).attr('data-name'));
     }
-    $('.amenities H4').html(Object.values(name).join(', '));
+    $('.amenities H4').html(Object.values(amenities).join(', '));
   });
 });

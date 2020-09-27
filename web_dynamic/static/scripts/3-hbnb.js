@@ -9,7 +9,7 @@ $(document).ready(() => {
     $('.amenities H4').html(Object.values(amenities).join(', '));
   });
 
-  $.get('http://952439a6e64d.19.hbtn-cod.io:5000/api/v1/status', function (data) {
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
     if (data.status === 'OK') {
       $('DIV#api_status').addClass('available');
     } else {
@@ -18,7 +18,7 @@ $(document).ready(() => {
   });
 
   $.ajax({
-    url: 'http://952439a6e64d.19.hbtn-cod.io:5000/api/v1/places_search',
+    url: 'http://0.0.0.0:5001/api/v1/places_search/',
     type: "POST",
     data: '{}',
     contentType: "application/json; charset=utf-8",
@@ -51,34 +51,4 @@ $(document).ready(() => {
       $('.places').html(places);
     }
   });
-
-  $.post('http://952439a6e64d.19.hbtn-cod.io:5000/api/v1/places_search', {}, function (data) {
-    if (data) {
-      let places = '';
-      $.each(data, function (index, value) {
-        const guest = (value.max_guest > 1) ? 'guests' : 'guest';
-        const rooms = (value.number_rooms > 1) ? 'rooms' : 'room';
-        const bathrooms = (value.number_bathrooms > 1) ? 'bathrooms' : 'bathroom';
-        places = places + '<article>' + 
-          '<div class="title_box">' + 
-            '<h2>' + value.name + '</h2>' +
-            '<div class="price_by_night">' + value.price_by_night + '</div>' +
-          '</div>' +
-          '<div class="information">' +
-            '<div class="max_guest">' +
-              value.max_guest + guest +
-            '</div>' +
-            '<div class="number_rooms">' + 
-              value.number_rooms + rooms +
-            '</div>' +
-            '<div class="number_bathrooms">' +
-              value.number_bathrooms + bathrooms +
-            '</div>' +
-          '</div>' +
-          '<div class="description">' + value.description + '</div>' +
-        '</article>'
-      });
-      $('.places').html(places);
-    }
-  }, 'json');
 });
