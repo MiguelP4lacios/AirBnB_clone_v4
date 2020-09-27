@@ -1,15 +1,11 @@
 $(document).ready(() => {
-  const id = [];
-  const name = [];
-  $('.amenities INPUT').click(() => {
-    if ($(this).prop('checked') === true) {
-      id.push($('.amenities INPUT').data('id'));
-      name.push($(this).parents('LI').html());
-      $('.amenities H4').html(name);
-    } else if ($(this).prop('checked') === false) {
-      id.pop($('.amenities INPUT').removeData('id'));
-      name.pop($(this).parents('LI').html());
-      $('.amenities H4').html(name);
+  let name = [];
+  $('.amenities INPUT').change(function () {
+    if (this.checked) {
+      name.push($(this).attr('data-name'));
+    } else {
+      name.pop($(this).attr('data-name'));
     }
+    $('.amenities H4').html(Object.values(name).join(', '));
   });
 });
