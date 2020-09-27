@@ -9,7 +9,7 @@ header {
 header .logo {
     align-self: flex-start;
     background: url("../images/logo.png") center no-repeat;
-    /* left: 20px; */
+    margin-left: 20px;
     width: 142px;
     height: 60px;
 }
@@ -20,9 +20,12 @@ header #api_status {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+header .disable {
     background-color:#cccccc;
 }
 
-header.available {
+header .available {
     background-color:#ff545f;
 }

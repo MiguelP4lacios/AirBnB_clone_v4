@@ -8,10 +8,11 @@ $(document).ready(() => {
     }
     $('.amenities H4').html(Object.values(name).join(', '));
   });
-  $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
+  $.get('http://952439a6e64d.19.hbtn-cod.io:5000/api/v1/status', function (data) {
     if (data.status === 'OK') {
-      console.log("STATUS OK")
-      $('DIV#api_status').toogleClass('available');
+      $('DIV#api_status').addClass('available');
+    } else {
+      $('DIV#api_status').addClass('disable');
     }
   });
 });
