@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+}
+header .logo {
+    align-self: flex-start;
+    background: url("../images/logo.png") center no-repeat;
+    margin-left: 20px;
+    width: 142px;
+    height: 60px;
+}
+
+header #api_status {
+    align-self: center;
+    margin-right: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+header .disable {
+    background-color:#cccccc;
+}
+
+header .available {
+    background-color:#ff545f;
+}
